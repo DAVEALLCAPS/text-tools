@@ -6,14 +6,16 @@ function InputTextBox({ inputText, setInputText }) {
   };
 
   return (
-    <div className="mb-1">
+    <div className="mt-1">
+      <label className="block text-lg font-bold mb-2" htmlFor="inputTextArea">Input Text</label>
       <textarea
+        id="inputTextArea"
         value={inputText}
         onChange={handleChange}
         placeholder="Paste or type your text here..."
         rows="6"
         cols="50"
-        className="p-2 border rounded"
+        className="p-2 mb-2 border rounded"
       ></textarea>
     </div>
   );

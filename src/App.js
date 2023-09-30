@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="flex flex-col justify-center items-center bg-gray-100">
       <InputTextBox inputText={inputText} setInputText={setInputText} />
-      <TextOptions inputText={inputText} setOutputText={setOutputText} />
+      <TextOptions inputText={inputText} setOutputText={setOutputText} outputText={outputText} />
       <OutputTextBox outputText={outputText} />
     </div>
   );
