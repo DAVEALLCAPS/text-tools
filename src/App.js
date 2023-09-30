@@ -4,8 +4,8 @@ import TextOptions from "./components/TextOptions";
 import OutputTextBox from "./components/OutputTextBox";
 
 function App() {
-  const [inputText, setInputText] = useState(""); // user input
-  const [outputText, setOutputText] = useState(""); // processed text
+  const [inputText, setInputText] = useState("");
+  const [outputText, setOutputText] = useState("");
 
   return (
     <div className="App">

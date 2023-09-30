@@ -1,15 +1,36 @@
-import React from 'react';
+import React, { useState } from "react";
 
 function TextOptions({ inputText, setOutputText }) {
+  const [selectedOption, setSelectedOption] = useState("joinLines"); // Set initial state to 'joinLines'
 
-  const joinLines = () => {
-    const joinedText = inputText.split('\n').join(' '); // you might want to join with ' ' or ''
-    setOutputText(joinedText);
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
+  const applyTextOption = () => {
+    let resultText = inputText;
+    switch (selectedOption) {
+      case "joinLines":
+        resultText = inputText.split("\n").join(" ");
+        break;
+      default:
+        break;
+    }
+    setOutputText(resultText);
   };
 
   return (
     <div>
-      <button onClick={joinLines}>Join Lines</button>
+      <label>
+        <input
+          type="radio"
+          value="joinLines"
+          checked={selectedOption === "joinLines"}
+          onChange={handleOptionChange}
+        />
+        Join Lines
+      </label>
+      <button onClick={applyTextOption}>Submit</button>
     </div>
   );
 }
