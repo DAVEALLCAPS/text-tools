@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function InputTextBox() {
-  const [inputText, setInputText] = useState("");
-
+function InputTextBox({ inputText, setInputText }) {
   const handleChange = (event) => {
     setInputText(event.target.value);
   };
@@ -19,3 +17,5 @@ export default function InputTextBox() {
     </div>
   );
 }
+
+export default InputTextBox;

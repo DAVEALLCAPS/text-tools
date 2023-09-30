@@ -1,12 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-export default function OutputTextBox({ newText }) {
-  const [outputText, setOutputText] = useState("");
-
-  useEffect(() => {
-    setOutputText(newText);
-  }, [newText]);
-
+function OutputTextBox({ outputText }) {
   const handleCopy = () => {
     navigator.clipboard.writeText(outputText);
     alert("Text copied to clipboard");
@@ -19,3 +13,5 @@ export default function OutputTextBox({ newText }) {
     </div>
   );
 }
+
+export default OutputTextBox;
