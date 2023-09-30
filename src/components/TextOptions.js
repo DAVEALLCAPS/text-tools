@@ -1,7 +1,17 @@
-import React from 'react'
+import React from 'react';
 
-export default function TextOptions() {
+function TextOptions({ inputText, setOutputText }) {
+
+  const joinLines = () => {
+    const joinedText = inputText.split('\n').join(' '); // you might want to join with ' ' or ''
+    setOutputText(joinedText);
+  };
+
   return (
-    <div>TextOptions</div>
-  )
+    <div>
+      <button onClick={joinLines}>Join Lines</button>
+    </div>
+  );
 }
+
+export default TextOptions;
