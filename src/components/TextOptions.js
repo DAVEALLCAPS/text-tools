@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import Markdown from "react-markdown";
 
 function TextOptions({ inputText, setOutputText, outputText }) {
   const [selectedOption, setSelectedOption] = useState("joinLines");
   const [autoCopy, setAutoCopy] = useState(false);
+
+  const [rawMarkdown, setRawMarkdown] = useState('');
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
@@ -14,6 +17,10 @@ function TextOptions({ inputText, setOutputText, outputText }) {
       case "joinLines":
         resultText = inputText.split("\n").join(" ");
         break;
+      case "convertToHTML":
+        setRawMarkdown(inputText);
+        resultText = <Markdown>{inputText}</Markdown>;
+        break;
       default:
         break;
     }
@@ -23,7 +30,8 @@ function TextOptions({ inputText, setOutputText, outputText }) {
     }
   };
 
-  const handleCopy = (textToCopy) => {
+  const handleCopy = () => {
+    const textToCopy = selectedOption === 'convertToHTML' ? rawMarkdown : outputText;
     navigator.clipboard.writeText(textToCopy);
     alert("Text copied to clipboard");
   };
@@ -41,6 +49,17 @@ function TextOptions({ inputText, setOutputText, outputText }) {
         />
         <label htmlFor="joinLines" className="font-medium">
           Join Lines
+        </label>
+        <input
+          type="radio"
+          id="convertToHTML"
+          value="convertToHTML"
+          checked={selectedOption === "convertToHTML"}
+          onChange={handleOptionChange}
+          className="form-radio"
+        />
+        <label htmlFor="convertToHTML" className="font-medium">
+          Convert to HTML
         </label>
       </div>
       <button
