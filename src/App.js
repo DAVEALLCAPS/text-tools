@@ -9,7 +9,7 @@ function App() {
   const [outputText, setOutputText] = useState("");
 
   return (
-    <div className="flex flex-col justify-center items-center bg-gray-100">
+    <div className="flex flex-col justify-center items-center bg-white">
       <InputTextBox inputText={inputText} setInputText={setInputText} />
       <TextOptions inputText={inputText} setOutputText={setOutputText} outputText={outputText} />
       <OutputTextBox outputText={outputText} />
