@@ -13,6 +13,8 @@ import ExtractEmails from "./components/TextOptions/ExtractEmails";
 import ExtractURLs from "./components/TextOptions/ExtractURLs";
 import SaveToTXT from "./components/SaveToTXT";
 import SaveToCSV from "./components/SaveToCSV";
+import JsonFormatter from "./components/TextOptions/JsonFormatter";
+import JsonMinifier from "./components/TextOptions/JsonMinifier";
 
 function App() {
   const [inputText, setInputText] = useState("");
@@ -48,6 +50,8 @@ function App() {
           <Lowercase inputText={inputText} applyOption={setOutputText} />
           <ExtractEmails inputText={inputText} applyOption={setOutputText} />
           <ExtractURLs inputText={inputText} applyOption={setOutputText} />
+          <JsonFormatter inputText={inputText} applyOption={setOutputText} />
+          <JsonMinifier inputText={inputText} applyOption={setOutputText} />
         </div>
       </div>
     </TooltipProvider>
