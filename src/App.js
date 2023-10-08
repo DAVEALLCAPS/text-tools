@@ -30,8 +30,13 @@ function App() {
         <label htmlFor="output" className="block text-sm font-medium">Output</label>
         <OutputTextBox outputText={outputText} />
         <TextStatistics inputText={outputText} />
+          <div className="col-span-2 flex flex-wrap gap-4 justify-end">
+            <CopyButton textToCopy={outputText} />
+            <SaveToTXT text={outputText} />
+            <SaveToCSV text={outputText} />
+          </div>
       </div>
-      <div className="col-span-2 flex flex-wrap gap-4">
+      <div className="col-span-2 flex flex-wrap gap-4 justify-center">
         <JoinLines inputText={inputText} applyOption={setOutputText} />
         <Base64Encode inputText={inputText} applyOption={setOutputText} />
         <Base64Decode inputText={inputText} applyOption={setOutputText} />
@@ -39,11 +44,6 @@ function App() {
         <Lowercase inputText={inputText} applyOption={setOutputText} />
         <ExtractEmails inputText={inputText} applyOption={setOutputText} />
         <ExtractURLs inputText={inputText} applyOption={setOutputText} />
-      </div>
-      <div className="col-span-2 flex flex-wrap gap-4">
-        <CopyButton textToCopy={outputText} />
-        <SaveToTXT text={outputText} />
-        <SaveToCSV text={outputText} />
       </div>
     </div>
     </TooltipProvider>
