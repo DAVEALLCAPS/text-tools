@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../Button';
+import TooltipButton from '../TooltipButton';
 
 function Uppercase({ inputText, applyOption }) {
   const handleUppercase = () => {
@@ -7,7 +7,11 @@ function Uppercase({ inputText, applyOption }) {
     applyOption(resultText);
   };
 
-  return <Button onClick={handleUppercase}>Uppercase</Button>;
+  return (
+    <TooltipButton onClick={handleUppercase} tooltipContent="Click to convert text to uppercase">
+      Uppercase
+    </TooltipButton>
+  );
 }
 
 export default Uppercase;

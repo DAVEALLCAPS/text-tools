@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../Button';
+import TooltipButton from '../TooltipButton';
 
 function JoinLines({ inputText, applyOption }) {
   const handleJoinLines = () => {
@@ -7,7 +7,11 @@ function JoinLines({ inputText, applyOption }) {
     applyOption(resultText);
   };
 
-  return <Button onClick={handleJoinLines}>Join Lines</Button>;
+  return (
+    <TooltipButton onClick={handleJoinLines} tooltipContent="Click to join lines into a single line">
+      Join Lines
+    </TooltipButton>
+  );
 }
 
 export default JoinLines;

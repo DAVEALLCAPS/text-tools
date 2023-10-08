@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../Button';
+import TooltipButton from '../TooltipButton';
 
 function Lowercase({ inputText, applyOption }) {
   const handleLowercase = () => {
@@ -7,7 +7,11 @@ function Lowercase({ inputText, applyOption }) {
     applyOption(resultText);
   };
 
-  return <Button onClick={handleLowercase}>Lowercase</Button>;
+  return (
+    <TooltipButton onClick={handleLowercase} tooltipContent="Click to convert text to lowercase">
+      Lowercase
+    </TooltipButton>
+  );
 }
 
 export default Lowercase;

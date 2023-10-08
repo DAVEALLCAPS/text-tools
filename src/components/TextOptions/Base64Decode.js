@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../Button';
+import TooltipButton from '../TooltipButton';
 
 function Base64Decode({ inputText, applyOption }) {
   const handleDecode = () => {
@@ -11,7 +11,11 @@ function Base64Decode({ inputText, applyOption }) {
     }
   };
 
-  return <Button onClick={handleDecode}>Decode from Base64</Button>;
+  return (
+    <TooltipButton onClick={handleDecode} tooltipContent="Click to decode Base64 text to normal text">
+      Decode from Base64
+    </TooltipButton>
+  );
 }
 
 export default Base64Decode;
