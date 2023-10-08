@@ -9,6 +9,8 @@ import TextStatistics from './components/TextStatistics';
 import Base64Decode from './components/TextOptions/Base64Decode';
 import Base64Encode from './components/TextOptions/Base64Encode';
 import { TooltipProvider } from './components/ui/tooltip';
+import ExtractEmails from './components/TextOptions/ExtractEmails';
+import ExtractURLs from './components/TextOptions/ExtractURLs';
 
 function App() {
   const [inputText, setInputText] = useState('');
@@ -33,6 +35,8 @@ function App() {
         <Base64Decode inputText={inputText} applyOption={setOutputText} />
         <Uppercase inputText={inputText} applyOption={setOutputText} />
         <Lowercase inputText={inputText} applyOption={setOutputText} />
+        <ExtractEmails inputText={inputText} applyOption={setOutputText} />
+        <ExtractURLs inputText={inputText} applyOption={setOutputText} />
       </div>
       <div className="col-span-2 text-right">
         <CopyButton textToCopy={outputText} />
