@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../Button';
+import TooltipButton from '../TooltipButton'; // Adjust the import path as needed
 
 function Base64Encode({ inputText, applyOption }) {
   const handleEncode = () => {
@@ -7,7 +7,11 @@ function Base64Encode({ inputText, applyOption }) {
     applyOption(resultText);
   };
 
-  return <Button onClick={handleEncode}>Encode to Base64</Button>;
+  return (
+    <TooltipButton onClick={handleEncode} tooltipContent="Click to encode text to Base64">
+      Encode to Base64
+    </TooltipButton>
+  );
 }
 
 export default Base64Encode;

@@ -3,7 +3,7 @@ import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/components/ui/tooltip'; 
+} from '../components/ui/tooltip'; 
 import Button from './Button'; 
 
 const TooltipButton = ({ onClick, children, tooltipContent }) => {
