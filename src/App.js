@@ -27,7 +27,7 @@ function App() {
         <OutputTextBox outputText={outputText} />
         <TextStatistics inputText={outputText} />
       </div>
-      <div className="col-span-2 grid grid-cols-3 gap-4">
+      <div className="col-span-2 flex flex-wrap gap-4">
         <JoinLines inputText={inputText} applyOption={setOutputText} />
         <Base64Encode inputText={inputText} applyOption={setOutputText} />
         <Base64Decode inputText={inputText} applyOption={setOutputText} />

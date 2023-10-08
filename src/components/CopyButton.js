@@ -3,7 +3,6 @@ import React from 'react';
 function CopyButton({ textToCopy }) {
   const handleCopy = () => {
     navigator.clipboard.writeText(textToCopy);
-    alert('Text copied to clipboard');
   };
 
   return (
