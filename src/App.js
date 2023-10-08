@@ -6,6 +6,8 @@ import JoinLines from './components/TextOptions/JoinLines';
 import Uppercase from './components/TextOptions/Uppercase';
 import Lowercase from './components/TextOptions/Lowercase';
 import TextStatistics from './components/TextStatistics';
+import Base64Decode from './components/TextOptions/Base64Decode';
+import Base64Encode from './components/TextOptions/Base64Encode';
 
 function App() {
   const [inputText, setInputText] = useState('');
@@ -25,6 +27,8 @@ function App() {
       </div>
       <div className="col-span-2 grid grid-cols-3 gap-4">
         <JoinLines inputText={inputText} applyOption={setOutputText} />
+        <Base64Encode inputText={inputText} applyOption={setOutputText} />
+        <Base64Decode inputText={inputText} applyOption={setOutputText} />
         <Uppercase inputText={inputText} applyOption={setOutputText} />
         <Lowercase inputText={inputText} applyOption={setOutputText} />
       </div>
