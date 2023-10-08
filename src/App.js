@@ -5,6 +5,7 @@ import CopyButton from './components/CopyButton';
 import JoinLines from './components/TextOptions/JoinLines';
 import Uppercase from './components/TextOptions/Uppercase';
 import Lowercase from './components/TextOptions/Lowercase';
+import TextStatistics from './components/TextStatistics';
 
 function App() {
   const [inputText, setInputText] = useState('');
@@ -15,10 +16,12 @@ function App() {
       <div>
         <label htmlFor="input" className="block text-sm font-medium">Input</label>
         <InputTextBox inputText={inputText} setInputText={setInputText} />
+        <TextStatistics inputText={inputText} />
       </div>
       <div>
         <label htmlFor="output" className="block text-sm font-medium">Output</label>
         <OutputTextBox outputText={outputText} />
+        <TextStatistics inputText={outputText} />
       </div>
       <div className="col-span-2 grid grid-cols-3 gap-4">
         <JoinLines inputText={inputText} applyOption={setOutputText} />
