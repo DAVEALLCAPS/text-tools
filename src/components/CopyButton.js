@@ -1,4 +1,5 @@
 import React from 'react';
+import TooltipButton from './TooltipButton'; // Adjust the import path as needed
 
 function CopyButton({ textToCopy }) {
   const handleCopy = () => {
@@ -6,9 +7,9 @@ function CopyButton({ textToCopy }) {
   };
 
   return (
-    <button onClick={handleCopy} className="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-md">
+    <TooltipButton onClick={handleCopy} tooltipContent="Click to copy text to clipboard" className="bg-red-600 hover:bg-red-700">
       Copy to Clipboard
-    </button>
+    </TooltipButton>
   );
 }
 

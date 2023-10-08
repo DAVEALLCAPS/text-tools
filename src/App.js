@@ -11,6 +11,8 @@ import Base64Encode from './components/TextOptions/Base64Encode';
 import { TooltipProvider } from './components/ui/tooltip';
 import ExtractEmails from './components/TextOptions/ExtractEmails';
 import ExtractURLs from './components/TextOptions/ExtractURLs';
+import SaveToTXT from './components/SaveToTXT';
+import SaveToCSV from './components/SaveToCSV';
 
 function App() {
   const [inputText, setInputText] = useState('');
@@ -38,8 +40,10 @@ function App() {
         <ExtractEmails inputText={inputText} applyOption={setOutputText} />
         <ExtractURLs inputText={inputText} applyOption={setOutputText} />
       </div>
-      <div className="col-span-2 text-right">
+      <div className="col-span-2 flex flex-wrap gap-4">
         <CopyButton textToCopy={outputText} />
+        <SaveToTXT text={outputText} />
+        <SaveToCSV text={outputText} />
       </div>
     </div>
     </TooltipProvider>

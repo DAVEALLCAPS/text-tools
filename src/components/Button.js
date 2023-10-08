@@ -1,8 +1,9 @@
 import React from 'react';
 
-function Button({ onClick, children }) {
+function Button({ onClick, children, className }) {
+  const combinedClassName = `px-2 py-1 rounded-md ${className || 'bg-blue-600 hover:bg-blue-700'}`;
   return (
-    <button onClick={onClick} className="px-2 py-1 bg-blue-600 hover:bg-blue-700 rounded-md">
+    <button onClick={onClick} className={combinedClassName}>
       {children}
     </button>
   );
