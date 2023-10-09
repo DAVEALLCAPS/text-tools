@@ -56,5 +56,4 @@ You can then copy, save as TXT, or save as CSV.
 ## Built With
 
 - [React](https://reactjs.org/)
-- [Next.js](https://nextjs.org/)
 - [shadcn/ui](https://ui.shadcn.com/)
