@@ -36,7 +36,7 @@ function TextToolPage() {
             Output
           </label>
           <OutputTextBox outputText={outputText} />
-          <TextStatistics inputText={outputText} />
+          <TextStatistics inputText={outputText} compareText={inputText} />
         </div>
         <div className="col-span-2 flex flex-wrap gap-4 justify-end">
           <CopyButton textToCopy={outputText} />
