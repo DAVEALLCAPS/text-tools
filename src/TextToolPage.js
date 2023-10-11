@@ -15,6 +15,7 @@ import SaveToTXT from "./components/SaveToTXT";
 import SaveToCSV from "./components/SaveToCSV";
 import JsonFormatter from "./components/TextOptions/JsonFormatter";
 import JsonMinifier from "./components/TextOptions/JsonMinifier";
+import RemoveDuplicateLines from "./components/TextOptions/RemoveDuplicateLines";
 
 function TextToolPage() {
   const [inputText, setInputText] = useState("");
@@ -44,6 +45,7 @@ function TextToolPage() {
         </div>
         <div className="col-span-2 flex gap-4 justify-center">
           <JoinLines inputText={inputText} applyOption={setOutputText} />
+          <RemoveDuplicateLines inputText={inputText} applyOption={setOutputText} />
           <Base64Encode inputText={inputText} applyOption={setOutputText} />
           <Base64Decode inputText={inputText} applyOption={setOutputText} />
           <Uppercase inputText={inputText} applyOption={setOutputText} />
