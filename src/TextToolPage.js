@@ -16,10 +16,17 @@ import SaveToCSV from "./components/SaveToCSV";
 import JsonFormatter from "./components/TextOptions/JsonFormatter";
 import JsonMinifier from "./components/TextOptions/JsonMinifier";
 import RemoveDuplicateLines from "./components/TextOptions/RemoveDuplicateLines";
+import OutputHistory from "./components/OutputHistory";
 
 function TextToolPage() {
   const [inputText, setInputText] = useState("");
   const [outputText, setOutputText] = useState("");
+  const [outputHistory, setOutputHistory] = useState([]);
+
+  const appendToHistory = (newOutput) => {
+    setOutputText(newOutput);
+    setOutputHistory((prevHistory) => [...prevHistory, newOutput]);
+  };
 
   return (
     <TooltipProvider>
@@ -44,16 +51,22 @@ function TextToolPage() {
           <SaveToCSV text={outputText} />
         </div>
         <div className="col-span-2 flex gap-4 justify-center">
-          <JoinLines inputText={inputText} applyOption={setOutputText} />
-          <RemoveDuplicateLines inputText={inputText} applyOption={setOutputText} />
-          <Base64Encode inputText={inputText} applyOption={setOutputText} />
-          <Base64Decode inputText={inputText} applyOption={setOutputText} />
-          <Uppercase inputText={inputText} applyOption={setOutputText} />
-          <Lowercase inputText={inputText} applyOption={setOutputText} />
-          <ExtractEmails inputText={inputText} applyOption={setOutputText} />
-          <ExtractURLs inputText={inputText} applyOption={setOutputText} />
-          <JsonFormatter inputText={inputText} applyOption={setOutputText} />
-          <JsonMinifier inputText={inputText} applyOption={setOutputText} />
+          <JoinLines inputText={inputText} applyOption={appendToHistory} />
+          <RemoveDuplicateLines
+            inputText={inputText}
+            applyOption={appendToHistory}
+          />
+          <Base64Encode inputText={inputText} applyOption={appendToHistory} />
+          <Base64Decode inputText={inputText} applyOption={appendToHistory} />
+          <Uppercase inputText={inputText} applyOption={appendToHistory} />
+          <Lowercase inputText={inputText} applyOption={appendToHistory} />
+          <ExtractEmails inputText={inputText} applyOption={appendToHistory} />
+          <ExtractURLs inputText={inputText} applyOption={appendToHistory} />
+          <JsonFormatter inputText={inputText} applyOption={appendToHistory} />
+          <JsonMinifier inputText={inputText} applyOption={appendToHistory} />
+        </div>
+        <div className="col-span-2">
+          <OutputHistory history={outputHistory} />
         </div>
       </div>
     </TooltipProvider>
