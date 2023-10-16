@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import InputTextBox from "./components/InputTextBox";
 import OutputTextBox from "./components/OutputTextBox";
 import CopyButton from "./components/CopyButton";
@@ -17,16 +17,29 @@ import JsonFormatter from "./components/TextOptions/JsonFormatter";
 import JsonMinifier from "./components/TextOptions/JsonMinifier";
 import RemoveDuplicateLines from "./components/TextOptions/RemoveDuplicateLines";
 import OutputHistory from "./components/OutputHistory";
+import { Alert, AlertDescription, AlertTitle } from "./components/ui/alert";
+import { HiOutlineClipboardDocumentCheck } from "react-icons/hi2";
 
 function TextToolPage() {
   const [inputText, setInputText] = useState("");
   const [outputText, setOutputText] = useState("");
   const [outputHistory, setOutputHistory] = useState([]);
+  const [showAlert, setShowAlert] = useState(false);
 
   const appendToHistory = (newOutput) => {
     setOutputText(newOutput);
     setOutputHistory((prevHistory) => [...prevHistory, newOutput]);
   };
+
+  useEffect(() => {
+    if (showAlert) {
+      const timer = setTimeout(() => {
+        setShowAlert(false);
+      }, 3000); // Hide after 3 seconds
+
+      return () => clearTimeout(timer); // Cleanup timer on unmount
+    }
+  }, [showAlert]);
 
   return (
     <TooltipProvider>
@@ -66,7 +79,19 @@ function TextToolPage() {
           <JsonMinifier inputText={inputText} applyOption={appendToHistory} />
         </div>
         <div className="col-span-2">
-          <OutputHistory history={outputHistory} />
+          <OutputHistory history={outputHistory} setShowAlert={setShowAlert} />
+        </div>
+        <div>
+          {" "}
+          {showAlert && (
+            <Alert>
+              <HiOutlineClipboardDocumentCheck />
+              <AlertTitle>Copied!</AlertTitle>
+              <AlertDescription>
+                Text has been successfully copied to the clipboard.
+              </AlertDescription>
+            </Alert>
+          )}
         </div>
       </div>
     </TooltipProvider>
